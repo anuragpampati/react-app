@@ -1,0 +1,16 @@
+.btn {
+    padding: 8px,12px;
+    border-radius: 3px;
+    border-radius: 0; 
+    background-color: red;
+    color: black;
+}
+
+.btn-danger{
+    background-color: red;
+    color: black;
+}
+
+.table{
+    border-color: black;
+}

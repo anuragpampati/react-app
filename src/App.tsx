@@ -1,23 +1,34 @@
 import { useState } from "react";
-import Like from "./Components/Like/Like";
-// import ListGroup from "./Components/ListGroup";
+import ExpenseList from "./expense-tracker/Components/ExpenseList";
 
 function App() {
-  const [pizza, setPizza] = useState({
-    name: "Spicy Peparoni",
-    toppings: ["mushrooms"],
-  });
-
-  const handleClick = () => {
-    setPizza({ ...pizza, toppings: [...pizza.toppings, "cheese"] });
-  };
+  const [expense, setExpense] = useState([
+    {
+      id: 1,
+      decription: "a",
+      amount: 10,
+      category: "Utilities",
+    },
+    {
+      id: 2,
+      decription: "a",
+      amount: 10,
+      category: "Utilities",
+    },
+    {
+      id: 3,
+      decription: "a",
+      amount: 10,
+      category: "Utilities",
+    },
+  ]);
+  if (expense.length == 0) return null;
   return (
     <div>
-      <Like
-        onClick={() => {
-          console.log("clicked");
-        }}
-      ></Like>
+      <ExpenseList
+        expense={expense}
+        onDelete={(id) => setExpense(expense.filter((e) => e.id != id))}
+      />
     </div>
   );
 }
